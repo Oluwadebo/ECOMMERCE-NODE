@@ -262,7 +262,7 @@ const Dashboard = () => {
                         </div>
                     </section>
                 </div>
-                <div className="">
+                <div className="website-feature">
                     <section className="website-feature">
                         <div className="container">
                             <div className="row">
