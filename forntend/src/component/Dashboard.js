@@ -194,6 +194,72 @@ const Dashboard = () => {
                         </div>
                     </section>
                 </div>
+                <div className="new-product">
+                    <section class="new-product">
+                        <div class="container">
+                            <div class="title-box">
+                                <h2>New Arrivals</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={go4} className="h-100" />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half"></i>
+                                        <h3>Female Dress</h3>
+                                        <h5>$40.00</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={go5} />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <h3>Men Dress</h3>
+                                        <h5>$70.00</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </>
     )
