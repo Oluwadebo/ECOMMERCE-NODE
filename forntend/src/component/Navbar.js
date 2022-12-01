@@ -43,7 +43,7 @@ const Navbar = () => {
                             <div className="col-12 col-md-8 text-md-end">
                                 <Link
                                     to=""
-                                    className=' cart stye'
+                                    className='cart stye'
                                 >
                                     <span>
                                         <i className="fa fs-5 fa-shopping-basket mx-md-4 mx-3"> Cart </i>

@@ -15,6 +15,9 @@ import footballboots from "./asset/football_boots_198704.jpg"
 import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Dashboard = () => {
+    const addtocart = () => {
+        alert("")
+    }
     let d = new Date();
     let year = d.getFullYear();
     // useEffect(() => {
@@ -98,7 +101,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -126,7 +129,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -153,7 +156,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -179,7 +182,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -216,7 +219,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -244,7 +247,7 @@ const Dashboard = () => {
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                     <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
                                                     <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
@@ -317,21 +320,21 @@ const Dashboard = () => {
                                     </div>
                                     <h1>Download App <img src={footballboots} alt="" /></h1>
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-4 col-md-3">
                                     <h1>Useful Links</h1>
                                     <p>Privacy Policy</p>
                                     <p>Term of Use</p>
                                     <p>Return Policy</p>
                                     <p>Discount Coupons</p>
                                 </div>
-                                <div className="col-md-3">
+                                <div className="col-4 col-md-3">
                                     <h1>Companys</h1>
                                     <p>About Us</p>
                                     <p>Contact Us</p>
                                     <p>Career</p>
                                     <p>Affiliate</p>
                                 </div>
-                                <div className="col-md-2">
+                                <div className="col-4 col-md-2">
                                     <h1>Follow Us On</h1>
                                     <p><i className="fa fa-facebook"></i>Facebook</p>
                                     <p><i className="fa fa-youtube"></i>Youtube</p>
