@@ -11,6 +11,8 @@ import go3 from "./asset/go3.jpg"
 import SouthKorea from "./asset/Hookup-in-South-Korea-quickly.jpg"
 import sidebarbanner from "./asset/sidebar_banner_img.jpg"
 import shopbanner2 from "./asset/shop_banner2.jpg"
+import footballboots from "./asset/football_boots_198704.jpg"
+import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Dashboard = () => {
     // useEffect(() => {
@@ -23,53 +25,53 @@ const Dashboard = () => {
         <>
             <Navbar />
             <div className="container-fluid mt-5 pt-4 mb-4 p-0 m-0">
-                {/* <div id="carouselExampleDark" class="carousel slide" data-bs-ride="true">
-                    <div class="carousel-indicators">
-                        <button data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></button>
+                {/* <div id="carouselExampleDark" className="carousel slide" data-bs-ride="true">
+                    <div className="carousel-indicators">
+                        <button data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active"></button>
                         <button data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></button>
                         <button data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="1000">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active" data-bs-interval="1000">
                             <img src={house3} className="w-100 h-50" alt="..." />
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src={house4} className="w-100 h-50" alt="..." />
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src={house5} className="w-100 h-50" alt="..." />
                         </div>
                     </div>
                 </div> */}
-                <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" id='clicked'></button>
+                <div id="carouselExampleDark" className="carousel slide" data-bs-ride="carousel">
+                    <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1" id='clicked'></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="1000">
+                    <div className="carousel-inner">
+                        <div className="carousel-item active" data-bs-interval="1000">
                             <img src={house3} className="w-100 h-50" alt="..." />
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src={house4} className="w-100 h-50" alt="..." />
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src={house5} className="w-100 h-50" alt="..." />
                         </div>
                     </div>
                 </div>
                 <div className="">
-                    <section class="feature-categories">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4">
+                    <section className="feature-categories">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-4">
                                     <img src={go2} />
                                 </div>
-                                <div class="col-md-4">
+                                <div className="col-md-4">
                                     <img src={go4} />
                                 </div>
-                                <div class="col-md-4">
+                                <div className="col-md-4">
                                     <img src={SouthKorea} />
                                 </div>
                             </div>
@@ -77,115 +79,115 @@ const Dashboard = () => {
                     </section>
                 </div>
                 <div className=" onsale">
-                    <section class="on-sale">
-                        <div class="container">
-                            <div class="title-box">
+                    <section className="on-sale">
+                        <div className="container">
+                            <div className="title-box">
                                 <h2>On Sale</h2>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                            <div className="row">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
                                             <img src={go4} className="h-100" />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half"></i>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-half"></i>
                                         <h3>Female Dress</h3>
                                         <h5>$40.00</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
                                             <img src={go5} />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
                                         <h3>Men Dress</h3>
                                         <h5>$70.00</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
                                             <img src={sidebarbanner} />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
                                         <h3>Women Dress</h3>
                                         <h5>$60.00</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
                                             <img src={shopbanner2} />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half"></i>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-half"></i>
                                         <h3>Women Black Jins Shirt</h3>
                                         <h5>$50.00</h5>
                                     </div>
@@ -195,65 +197,105 @@ const Dashboard = () => {
                     </section>
                 </div>
                 <div className="new-product">
-                    <section class="new-product">
-                        <div class="container">
-                            <div class="title-box">
+                    <section className="new-product">
+                        <div className="container">
+                            <div className="title-box">
                                 <h2>New Arrivals</h2>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                            <div className="row">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
-                                            <img src={go4} className="h-100" />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <img src={footballboots} className="h-100" />
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
 
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half"></i>
-                                        <h3>Female Dress</h3>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star-half"></i>
+                                        <h3>Men's Soccer Boot</h3>
                                         <h5>$40.00</h5>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="product-top">
+                                <div className="col-md-3">
+                                    <div className="product-top">
                                         <div className="imgBx">
-                                            <img src={go5} />
-                                            <div class="overlay-right">
-                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
-                                                    <i class="fa fa-eye"></i>
+                                            <img src={footballboot8} />
+                                            <div className="overlay-right">
+                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                    <i className="fa fa-eye"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
-                                                    <i class="fa fa-heart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                    <i className="fa fa-heart"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
-                                                    <i class="fa fa-shopping-cart"></i>
+                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                    <i className="fa fa-shopping-cart"></i>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-botttom text-center">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <h3>Men Dress</h3>
+                                    <div className="product-botttom text-center">
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <i className="fa fa-star"></i>
+                                        <h3>Men's Soccer Boot</h3>
                                         <h5>$70.00</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div className="">
+                    <section className="website-feature">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-3 feature-box">
+                                    <div className="imgBx">
+                                        <img src={footballboots} />
+                                        <div className="feature-text">
+                                            <p><b>100% Original items </b>are available at our company.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 feature-box">
+                                    <div className="imgBx">
+                                        <img src={footballboots} />
+                                        <div className="feature-text">
+                                            <p><b>Return within 30 days </b>of recieving your order.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 feature-box">
+                                    <div className="imgBx">
+                                        <img src={footballboots} />
+                                        <div className="feature-text">
+                                            <p><b>Get free delivery, on every </b>order your make.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 feature-box">
+                                    <div className="imgBx">
+                                        <img src={footballboots} />
+                                        <div className="feature-text">
+                                            <p><b>Pay Online through multiple </b>options (card/Net banking)</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
