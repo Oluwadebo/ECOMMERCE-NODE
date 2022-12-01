@@ -76,7 +76,7 @@ const Dashboard = () => {
                         </div>
                     </section>
                 </div>
-                <div className="">
+                <div className=" onsale">
                     <section class="on-sale">
                         <div class="container">
                             <div class="title-box">

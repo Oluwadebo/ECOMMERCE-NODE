@@ -5,6 +5,13 @@ import amaricanexpress from "./asset/amarican_express.png"
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const [top, settop] = useState(false)
+    const scrollup = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
     const logout = () => {
         // localStorage.removeItem('token')
         // localStorage.removeItem('userId')
@@ -57,6 +64,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </nav>
+                <div className="">
+                    <button onClick={scrollup} className="scr">^</button>
+                </div>
             </div>
         </>
     )
