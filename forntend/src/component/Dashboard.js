@@ -1,31 +1,198 @@
 import React from 'react'
+import { useEffect, useState } from "react";
+import Navbar from './Navbar'
+import house3 from "./asset/house3.jpg"
+import house4 from "./asset/house4.jpg"
+import house5 from "./asset/house5.jpg"
+import go4 from "./asset/go4.jfif"
+import go2 from "./asset/go2.jfif"
+import go5 from "./asset/go5.jfif"
+import go3 from "./asset/go3.jpg"
+import SouthKorea from "./asset/Hookup-in-South-Korea-quickly.jpg"
+import sidebarbanner from "./asset/sidebar_banner_img.jpg"
+import shopbanner2 from "./asset/shop_banner2.jpg"
 
 const Dashboard = () => {
-    const openmenu = () => {
+    // useEffect(() => {
+    //   window.addEventListener('load',()=>{
+    //     document.querySelector('#clicked').addEventListener('click')
+    //   })
+    // }, [])
 
-    }
-
-    const closemenu = () => {
-
-    }
     return (
         <>
-            <div>
-                <div className="top-nav-bar">
-                    <div className="search-box">
-                        <i className="fa fa-bars" id="menu-btn" onClick={openmenu}></i>
-                        <i className="fa fa-times" id="close-btn" onClick={closemenu}></i>
-                        {/* <img src="image/amarican_express.png" className="logo"> */}
-                        <input type="text" className="form-control" />
-                        <span className="input-group-text"><i className="fa fa-search"></i></span>
+            <Navbar />
+            <div className="container-fluid mt-5 pt-4 mb-4 p-0 m-0">
+                {/* <div id="carouselExampleDark" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                        <button data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></button>
+                        <button data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></button>
+                        <button data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></button>
                     </div>
-                    <div className="menu-bar">
-                        <ul>
-                            <li><a href="#"><i className="fa fa-shopping-basket"></i>Cart</a></li>
-                            <li><a href="#">Sign Up</a></li>
-                            <li><a href="#">Log In</a></li>
-                        </ul>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="1000">
+                            <img src={house3} className="w-100 h-50" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src={house4} className="w-100 h-50" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src={house5} className="w-100 h-50" alt="..." />
+                        </div>
                     </div>
+                </div> */}
+                <div id="carouselExampleDark" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" id='clicked'></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="1000">
+                            <img src={house3} className="w-100 h-50" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src={house4} className="w-100 h-50" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src={house5} className="w-100 h-50" alt="..." />
+                        </div>
+                    </div>
+                </div>
+                <div className="">
+                    <section class="feature-categories">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src={go2} />
+                                </div>
+                                <div class="col-md-4">
+                                    <img src={go4} />
+                                </div>
+                                <div class="col-md-4">
+                                    <img src={SouthKorea} />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div className="">
+                    <section class="on-sale">
+                        <div class="container">
+                            <div class="title-box">
+                                <h2>On Sale</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={go4} className="h-100" />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half"></i>
+                                        <h3>Female Dress</h3>
+                                        <h5>$40.00</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={go5} />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <h3>Men Dress</h3>
+                                        <h5>$70.00</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={sidebarbanner} />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <h3>Women Dress</h3>
+                                        <h5>$60.00</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="product-top">
+                                        <div className="imgBx">
+                                            <img src={shopbanner2} />
+                                            <div class="overlay-right">
+                                                <button type="button" class="btn btn-secondary" title="Quick Shop">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to wish list">
+                                                    <i class="fa fa-heart"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-secondary" title="Add to Cart">
+                                                    <i class="fa fa-shopping-cart"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-botttom text-center">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half"></i>
+                                        <h3>Women Black Jins Shirt</h3>
+                                        <h5>$50.00</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </>
