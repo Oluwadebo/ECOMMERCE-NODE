@@ -6,12 +6,14 @@ import Signup from "./component/Signup";
 import Signin from "./component/Signin";
 import Socket from "./component/Socket";
 import Dashboard from "./component/Dashboard";
+import Registration from "./component/Registration";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Dashboard/>} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/Registration" element={<Registration />} />
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Upload" element={<Upload />} />

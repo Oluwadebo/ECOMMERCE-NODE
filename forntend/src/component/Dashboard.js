@@ -22,7 +22,7 @@ const Dashboard = () => {
         if (token) {
 
         } else {
-            navigate("")
+            navigate("/Registration")
 
         }
     }

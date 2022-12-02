@@ -62,17 +62,17 @@ io.on("connection", (socket) => {
     })
 })
 
-app.post("/signup", regist)
-app.post("/signin", login)
+app.post("/customersignup", regist)
+app.post("/customersignin", login)
 app.get("/dashboard", display)
 app.post("/gettodo", getTodo)
 app.post("/files", file)
 app.post("/del", del)
 app.post("/addtocart", addtocart)
 
-const port = process.env.PORT || 5007
+const port = process.env.PORT || 5010
 
-server.listen(port, () => {
+app.listen(port, () => {
     // sendmail(["adewoleadekulemercy@gmail.com","felixadegboyega2019@gmail.com","bakareoluwatobi22@gmail.com"])
     console.log("Server started");
 })

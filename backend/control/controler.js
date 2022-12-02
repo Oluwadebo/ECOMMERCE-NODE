@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { UserModel, SignupModel } = require('../model/model');
+const { UserModel, CustomerModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -9,7 +9,7 @@ require('dotenv').config()
 const regist = (req, res) => {
     const information = req.body;
     let useremail = req.body.email;
-    SignupModel.create(information, (err) => {
+    CustomerModel.create(information, (err) => {
         if (err) {
             res.send({ message: "Email already used", status: false })
         } else {
@@ -21,7 +21,7 @@ const regist = (req, res) => {
 
 const login = (req, res) => {
     const { email, password } = req.body;
-    SignupModel.findOne({ email }, async (err, message) => {
+    CustomerModel.findOne({ email }, async (err, message) => {
         if (err) {
             res.send(err)
             console.log(err);
@@ -49,7 +49,7 @@ const display = (req, res) => {
             res.send({ status: false, message: "Invalid Token" })
         } else {
             let id = decoded._id;
-            SignupModel.find({ _id: id }, (err, result) => {
+            CustomerModel.find({ _id: id }, (err, result) => {
                 if (err) {
                     res.send(err);
                 } else {
@@ -120,4 +120,4 @@ const file = (req, res) => {
     });
 }
 
-module.exports = { display, del, file, login, regist, getTodo,addtocart };
+module.exports = { display, del, file, login, regist, getTodo, addtocart };

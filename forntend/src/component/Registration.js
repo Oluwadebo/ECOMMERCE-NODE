@@ -25,14 +25,12 @@ const Registration = () => {
 
     const signup = useFormik({
         initialValues: {
-            firstname: "",
-            Lastname: "",
+            Name: "",
             email: "",
             password: "",
-            gender: "",
         },
         onSubmit: (values) => {
-            axios.post(`${baseUrl}signup`, values).then((credentials) => {
+            axios.post(`${baseUrl}customersignup`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email already used") {
@@ -44,19 +42,14 @@ const Registration = () => {
             })
         },
         validationSchema: yup.object({
-            firstname: yup
+            Name: yup
                 .string()
                 .required("This field is required")
-                .min(4, "must be greater than three"),
-            Lastname: yup
-                .string()
-                .required("This field is required")
-                .min(3, "must be greater than two"),
+                .min(3, "must be greater than three"),
             email: yup
                 .string()
                 .required("This field is required")
                 .email("must be a valid email"),
-            gender: yup.string().required("This field is required"),
             password: yup
                 .string()
                 .required("This field is required")
@@ -72,7 +65,7 @@ const Registration = () => {
             password: "",
         },
         onSubmit: (values) => {
-            axios.post(`${baseUrl}signin`, values).then((credentials) => {
+            axios.post(`${baseUrl}customersignin`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email not found") {
@@ -82,7 +75,7 @@ const Registration = () => {
                     } else {
                         if (Err == "Token generated") {
                             localStorage.token = credentials.data.token
-                            navigate("/Dashboard")
+                            navigate("/")
                         }
                     }
                 }
@@ -124,46 +117,78 @@ const Registration = () => {
                 <div className="row mx-auto my-5">
                     {first && (
                         <div className="shadow col-12 col-md-4 mx-auto px-4 pb-3 asd">
-                            <h3 className="m-4">
+                            <h3 className="m-4 text-white">
                                 <b>
                                     <i>SIGN-IN</i>
                                 </b>
                             </h3>
                             <p>
-                                <b className="text-danger">{Error}</b>
+                                <b className="text-danger"><marquee className="card">{Error}</marquee></b>
                             </p>
                             <form action="" onSubmit={signin.handleSubmit}>
-                                <input type="email" placeholder="Your email" className={signin.errors.email && signin.touched.email ? "asde is-invalid" : "asde my-2"} onChange={signin.handleChange} name="email" onBlur={signin.handleBlur} />
-                                {signin.touched.email && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signin.errors.email}
-                                    </div>
-                                )}
-                                <input type="password" placeholder="Your password" ref={password} maxLength={10} className={signin.errors.password && signin.touched.password ? "asde is-invalid" : "asde my-2"} onChange={signin.handleChange} name="password" onBlur={signin.handleBlur} />
-                                <div
-                                    id="toggle"
-                                    ref={toggle}
-                                    onClick={showHide}
-                                    className="gose pe-4"
-                                >
-                                    <i ref={i} className="fa fa-eye" aria-hidden="true"></i>
+                                <div className="form-floating">
+                                    <input
+                                        type="email"
+                                        placeholder="Your email"
+                                        className={
+                                            signin.errors.email && signin.touched.email
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        onChange={signin.handleChange}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                        name="email"
+                                        onBlur={signin.handleBlur}
+                                    />
+                                    {signin.touched.email && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signin.errors.email}
+                                        </div>
+                                    )}
+                                    <label>&#x1F4E7;&nbsp; Your email</label>
                                 </div>
-                                {signin.touched.password && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signin.errors.password}
+                                <div className="form-floating my-3">
+                                    <input
+                                        type="password"
+                                        placeholder="Your password"
+                                        className={
+                                            signin.errors.password && signin.touched.password
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        ref={password}
+                                        maxLength={10}
+                                        onChange={signin.handleChange}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                        name="password"
+                                        onBlur={signin.handleBlur}
+                                    />
+                                    <div
+                                        id="toggle"
+                                        ref={toggle}
+                                        onClick={showHide}
+                                        className="gose pe-4"
+                                    >
+                                        <i ref={i} className="fa fa-eye" aria-hidden="true"></i>
                                     </div>
-                                )}
-                                <button
-                                    type="submit"
-                                    className="btn form-control py-3 mt-2 asd"
-                                >
-                                    Sign-In
-                                </button>
-                                <div className="row mt-3">
+                                    {signin.touched.password && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signin.errors.password}
+                                        </div>
+                                    )}
+                                    <label>&#x1F512;&nbsp; Your password</label>
+                                    <button
+                                        type="submit"
+                                        className="btn form-control py-3 mt-3 asdb"
+                                    >
+                                        <b>Sign-In</b>
+                                    </button>
+                                </div>
+                                <div className="row mt-3 text-white">
                                     <div className="col-md-12">
                                         <div className="row">
                                             <div className="col-8">
-                                                <p style={{ opacity: "0.6" }}>Don't have an account?</p>
+                                                <p style={{ opacity: "0.9" }}>Don't have an account?</p>
                                             </div>
                                             <div className="col-4">
                                                 <p>
@@ -178,70 +203,103 @@ const Registration = () => {
                             </form>
                         </div>
                     )}
+
                     {!first && (
-                        <div className="shadow col-12 col-md-4 mx-auto px-4 asd">
-                            <h3 className="m-4">
+                        <div className="shadow col-12 col-md-4 mx-auto px-4 pb-3 asd">
+                            <h3 className="m-4 text-white">
                                 <b>
                                     <i>Create an account</i>
                                 </b>
                             </h3>
                             <p>
-                                <b className="text-danger">{Error}</b>
+                                <b className="text-danger"><marquee className="card">{Error}</marquee></b>
                             </p>
                             <form action="" onSubmit={signup.handleSubmit}>
-                                <input type="text" placeholder="Your firstname" className={signup.errors.firstname && signup.touched.firstname ? "asde is-invalid" : "asde my-2"} onChange={signup.handleChange} name="firstname" onBlur={signup.handleBlur} />
-                                {signup.touched.firstname && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signup.errors.firstname}
-                                    </div>
-                                )}
-                                <input type="text" placeholder="Your Lastname" className={signup.errors.Lastname && signup.touched.Lastname ? "asde is-invalid" : "asde my-2"} onChange={signup.handleChange} name="Lastname" onBlur={signup.handleBlur} />
-                                {signup.touched.Lastname && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signup.errors.Lastname}
-                                    </div>
-                                )}
-                                <input type="email" placeholder="Your email" className={signup.errors.email && signup.touched.email ? "asde is-invalid" : "asde my-2"} onChange={signup.handleChange} name="email" onBlur={signup.handleBlur} />
-                                {signup.touched.email && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signup.errors.email}
-                                    </div>
-                                )}
-                                <select className={signup.errors.gender && signup.touched.gender ? "asde is-invalid" : "asde my-2"} onChange={signup.handleChange} name="gender" onBlur={signup.handleBlur}>
-                                    <option>Your gender</option>
-                                    <option value="MALE">MALE</option>
-                                    <option value="FEMALE">FEMALE</option>
-                                </select>
-                                {signup.touched.gender && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signup.errors.gender}
-                                    </div>
-                                )}
-                                <input type="password" placeholder="Your password" ref={password} maxLength={10} className={signup.errors.password && signup.touched.password ? "asde is-invalid" : "asde my-2"} onChange={signup.handleChange} name="password" onBlur={signup.handleBlur} />
-                                <div
-                                    id="toggle"
-                                    ref={toggle}
-                                    onClick={showHide}
-                                    className="gose pe-4"
-                                >
-                                    <i ref={i} className="fa fa-eye" aria-hidden="true"></i>
+                                <div className="form-floating my-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        className={
+                                            signup.errors.Name && signup.touched.Name
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        onChange={signup.handleChange}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                        name="Name"
+                                        onBlur={signup.handleBlur}
+                                    />
+                                    {signup.touched.Name && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signup.errors.Name}
+                                        </div>
+                                    )}
+                                    <label>&#x1F464;&nbsp; Your Name</label>
                                 </div>
-                                {signup.touched.password && (
-                                    <div style={{ color: "red" }} className="my-1">
-                                        {signup.errors.password}
+                                <div className="form-floating my-3">
+                                    <input
+                                        type="email"
+                                        placeholder="Your email"
+                                        className={
+                                            signup.errors.email && signup.touched.email
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        onChange={signup.handleChange}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                        name="email"
+                                        onBlur={signup.handleBlur}
+                                    />
+                                    {signup.touched.email && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signup.errors.email}
+                                        </div>
+                                    )}
+                                    <label>&#x1F4E7;&nbsp; Your email</label>
+                                </div>
+                                <div className="form-floating my-3">
+                                    <input
+                                        type="password"
+                                        placeholder="Your password"
+                                        className={
+                                            signup.errors.password && signup.touched.password
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        ref={password}
+                                        maxLength={10}
+                                        onChange={signup.handleChange}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                        name="password"
+                                        onBlur={signup.handleBlur}
+                                    />
+
+                                    <div
+                                        id="toggle"
+                                        ref={toggle}
+                                        onClick={showHide}
+                                        className="gose pe-4"
+                                    >
+                                        <i ref={i} className="fa fa-eye" aria-hidden="true"></i>
                                     </div>
-                                )}
-                                <button
-                                    type="submit"
-                                    className="btn form-control py-3 mt-2 asd"
-                                >
-                                    Sign-Up
-                                </button>
-                                <div className="row mt-3">
+                                    {signup.touched.password && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signup.errors.password}
+                                        </div>
+                                    )}
+                                    <label>&#x1F512;&nbsp; Your password</label>
+                                    <button
+                                        type="submit"
+                                        className="btn form-control py-3 mt-3 asdb"
+                                    >
+                                        <b>Sign-Up</b>
+                                    </button>
+                                </div>
+                                <div className="row mt-3 text-white">
                                     <div className="col-md-12">
                                         <div className="row">
                                             <div className="col-8">
-                                                <p style={{ opacity: "0.6" }}>Already have an account?</p>
+                                                <p style={{ opacity: "0.9" }}>Already have an account?</p>
                                             </div>
                                             <div className="col-4">
                                                 <p>

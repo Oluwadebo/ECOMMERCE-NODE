@@ -11,20 +11,18 @@ const UserSchema = new mongoose.Schema(
     }
 )
 
-const SignupSchema = new mongoose.Schema(
+const CustomerSchema = new mongoose.Schema(
     {
-        firstname: String,
-        lastname: String,
+        Name: String,
         email: {
             type: String,
             unique: true,
         },
-        gender: String,
         password: String,
     }
 )
 
-SignupSchema.pre("save", async function (next) {
+CustomerSchema.pre("save", async function (next) {
     let { password, email } = this;
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(password, salt);
@@ -34,6 +32,6 @@ SignupSchema.pre("save", async function (next) {
 })
 
 const UserModel = mongoose.model('User', UserSchema)
-const SignupModel = mongoose.model('Signup', SignupSchema)
+const CustomerModel = mongoose.model('Customer', CustomerSchema)
 
-module.exports = { UserModel, SignupModel };
+module.exports = { UserModel, CustomerModel };
