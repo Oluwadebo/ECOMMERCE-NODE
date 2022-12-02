@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { UserModel, CustomerModel } = require('../model/model');
+const { UserModel, CustomerModel, AdminModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -22,6 +22,42 @@ const regist = (req, res) => {
 const login = (req, res) => {
     const { email, password } = req.body;
     CustomerModel.findOne({ email }, async (err, message) => {
+        if (err) {
+            res.send(err)
+            console.log(err);
+        } else {
+            if (!message) {
+                res.send({ status: false, message: "Email not found" })
+            }
+            else {
+                const validPassword = await bcrypt.compare(password, message.password);
+                if (validPassword) {
+                    const token = jwt.sign({ _id: message._id }, process.env.JWT_SECRET, { expiresIn: "1h" })
+                    res.send({ token, message: "Token generated", status: true });
+                } else {
+                    res.send({ status: false, message: "Invaild password" })
+                }
+            }
+        }
+    })
+}
+
+const adminregist = (req, res) => {
+    const information = req.body;
+    let useremail = req.body.email;
+    AdminModel.create(information, (err) => {
+        if (err) {
+            res.send({ message: "Email already used", status: false })
+        } else {
+            sendmail(useremail)
+            res.send({ message: "saved", status: true })
+        }
+    })
+}
+
+const adminlogin = (req, res) => {
+    const { email, password } = req.body;
+    AdminModel.findOne({ email }, async (err, message) => {
         if (err) {
             res.send(err)
             console.log(err);
@@ -120,4 +156,4 @@ const file = (req, res) => {
     });
 }
 
-module.exports = { display, del, file, login, regist, getTodo, addtocart };
+module.exports = { display, del, file, login, regist, adminlogin, adminregist, getTodo, addtocart };

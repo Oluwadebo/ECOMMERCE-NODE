@@ -19,7 +19,7 @@ const io = new Server(server, {
     }
 });
 
-const { display, del, file, regist, login, getTodo, addtocart } = require("./control/controler");
+const { display, del, file, regist, login, getTodo, addtocart, adminregist, adminlogin } = require("./control/controler");
 const { checker } = require("./middleware/middleware");
 const { users, adduser } = require("./store");
 const { sendmail } = require("./mailer");
@@ -64,6 +64,8 @@ io.on("connection", (socket) => {
 
 app.post("/customersignup", regist)
 app.post("/customersignin", login)
+app.post("/adminsignup", adminregist)
+app.post("/adminsignin", adminlogin)
 app.get("/dashboard", display)
 app.post("/gettodo", getTodo)
 app.post("/files", file)

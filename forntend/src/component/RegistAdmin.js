@@ -29,10 +29,11 @@ const RegistAdmin = () => {
             Name: "",
             email: "",
             password: "",
+            gender: "",
         },
         onSubmit: (values) => {
             setloader(prev => true)
-            axios.post(`${baseUrl}customersignup`, values).then((credentials) => {
+            axios.post(`${baseUrl}adminsignup`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email already used") {
@@ -54,6 +55,7 @@ const RegistAdmin = () => {
                 .string()
                 .required("This field is required")
                 .email("must be a valid email"),
+            gender: yup.string().required("This field is required"),
             password: yup
                 .string()
                 .required("This field is required")
@@ -70,7 +72,7 @@ const RegistAdmin = () => {
         },
         onSubmit: (values) => {
             setloader(prev => true)
-            axios.post(`${baseUrl}customersignin`, values).then((credentials) => {
+            axios.post(`${baseUrl}adminsignin`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email not found") {
@@ -127,7 +129,7 @@ const RegistAdmin = () => {
                         <div className="shadow col-12 col-md-4 mx-auto px-4 pb-3 asd">
                             <h3 className="m-4 text-white">
                                 <b>
-                                    <i>SIGN-IN</i>
+                                    <i>SIGN-IN ADMIN</i>
                                 </b>
                             </h3>
                             <p>
@@ -221,7 +223,7 @@ const RegistAdmin = () => {
                         <div className="shadow col-12 col-md-4 mx-auto px-4 pb-3 asd">
                             <h3 className="m-4 text-white">
                                 <b>
-                                    <i>Create an account</i>
+                                    <i>Create an account as an admin</i>
                                 </b>
                             </h3>
                             <p>
@@ -269,6 +271,29 @@ const RegistAdmin = () => {
                                         </div>
                                     )}
                                     <label>&#x1F4E7;&nbsp; Your email</label>
+                                </div>
+                                <div className="form-floating my-3">
+                                    <select
+                                        className={
+                                            signup.errors.gender && signup.touched.gender
+                                                ? "form-control is-invalid"
+                                                : "form-control"
+                                        }
+                                        onChange={signup.handleChange}
+                                        name="gender"
+                                        onBlur={signup.handleBlur}
+                                        style={{ backgroundColor: "#F5F7FA" }}
+                                    >
+                                        <option>&#x1F4B7;&nbsp; Your gender</option>
+                                        <option value="MALE">MALE</option>
+                                        <option value="FEMALE">FEMALE</option>
+                                    </select>
+                                    {signup.touched.gender && (
+                                        <div style={{ color: "red" }} className="my-2">
+                                            {signup.errors.gender}
+                                        </div>
+                                    )}
+                                    <label>&#x1F4B7;&nbsp; Your gender</label>
                                 </div>
                                 <div className="form-floating my-3">
                                     <input
