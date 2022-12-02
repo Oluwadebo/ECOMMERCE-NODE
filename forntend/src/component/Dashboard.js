@@ -233,22 +233,21 @@ const Dashboard = () => {
                                                 </button>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div className="product-botttom text-center">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star-half"></i>
-                                        <h3>Men's Soccer Boot</h3>
-                                        <h5>$40.00</h5>
+                                        <div className="product-botttom text-center">
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star-half"></i>
+                                            <h3>Men's Soccer Boot</h3>
+                                            <h5>$40.00</h5>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-md-3">
                                     <div className="product-top">
                                         <div className="imgBx">
-                                            <img src={footballboot8} />
+                                            <img src={footballboot8} className="h-100" />
                                             <div className="overlay-right">
                                                 <button type="button" className="btn btn-secondary" title="Quick Shop">
                                                     <i className="fa fa-eye"></i>
@@ -261,15 +260,15 @@ const Dashboard = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="product-botttom text-center">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <h3>Men's Soccer Boot</h3>
-                                        <h5>$70.00</h5>
+                                        <div className="product-botttom text-center">
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star"></i>
+                                            <i className="fa fa-star-half"></i>
+                                            <h3>Men's Soccer Boot</h3>
+                                            <h5>$70.00</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
