@@ -10,6 +10,7 @@ const Registration = () => {
     const navigate = useNavigate();
     const [Error, setError] = useState("");
     const [first, setfirst] = useState(true)
+    const [loader, setloader] = useState(false)
 
     let lower = new RegExp(`(?=.*[a-z])`);
     let upper = new RegExp(`(?=.*[A-Z])`);
@@ -30,12 +31,15 @@ const Registration = () => {
             password: "",
         },
         onSubmit: (values) => {
+            setloader(prev => true)
             axios.post(`${baseUrl}customersignup`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email already used") {
+                        setloader(prev => false)
                         setError("Email already used");
                     } else {
+                        setloader(prev => false)
                         setfirst(prev => true)
                     }
                 }
@@ -65,16 +69,20 @@ const Registration = () => {
             password: "",
         },
         onSubmit: (values) => {
+            setloader(prev => true)
             axios.post(`${baseUrl}customersignin`, values).then((credentials) => {
                 if (credentials) {
                     let Err = credentials.data.message;
                     if (Err == "Email not found") {
+                        setloader(prev => false)
                         setError("Email not found");
                     } else if (Err == "Invaild password") {
+                        setloader(prev => false)
                         setError("Invaild password");
                     } else {
                         if (Err == "Token generated") {
-                            localStorage.token = credentials.data.token
+                            localStorage.customer = credentials.data.token
+                            setloader(prev => false)
                             navigate("/")
                         }
                     }
@@ -182,6 +190,11 @@ const Registration = () => {
                                         className="btn form-control py-3 mt-3 asdb"
                                     >
                                         <b>Sign-In</b>
+                                        {loader && (
+                                            <div className="spin">
+                                                <div className="loader"></div>
+                                            </div>
+                                        )}
                                     </button>
                                 </div>
                                 <div className="row mt-3 text-white">
@@ -293,6 +306,11 @@ const Registration = () => {
                                         className="btn form-control py-3 mt-3 asdb"
                                     >
                                         <b>Sign-Up</b>
+                                        {loader && (
+                                            <div className="spin">
+                                                <div className="loader"></div>
+                                            </div>
+                                        )}
                                     </button>
                                 </div>
                                 <div className="row mt-3 text-white">

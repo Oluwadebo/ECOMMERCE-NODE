@@ -17,9 +17,9 @@ import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const token = localStorage.token;
+    const customer = localStorage.customer;
     const addtocart = () => {
-        if (token) {
+        if (customer) {
 
         } else {
             navigate("/Registration")
