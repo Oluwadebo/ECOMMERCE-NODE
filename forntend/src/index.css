@@ -37,7 +37,6 @@ code {
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -165,9 +164,12 @@ code {
 .fa-search {
   color: #fff;
 }
-.col {
+.coles {
   background: #16325a !important;
   color: white;
+}
+.vd {
+  border: 1px solid red;
 }
 .cart {
   color: white;

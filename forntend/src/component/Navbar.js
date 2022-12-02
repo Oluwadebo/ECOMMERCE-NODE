@@ -12,15 +12,22 @@ const Navbar = () => {
             behavior: "smooth"
         })
     }
+    const admin = () => {
+        const yes = prompt("Are you an Admin");
+        if (yes == "yes" || yes == "YES" || yes == "Yes") {
+            navigate("/Admin")
+        } else {
+            navigate("/")
+        }
+    }
     const logout = () => {
-        // localStorage.removeItem('token')
-        // localStorage.removeItem('userId')
-        // navigate("/")
+        localStorage.removeItem('customer')
+        navigate("/Registration")
     }
     return (
         <>
             <div>
-                <nav className="navbar navbar-expand-lg bg-light fixed-top col">
+                <nav className="navbar navbar-expand-lg bg-light fixed-top coles">
                     <div className="container">
                         <a className="navbar-brand">
                             <img src={amaricanexpress} alt="amaricanexpress" className="logo" />
@@ -49,14 +56,17 @@ const Navbar = () => {
                                         <i className="fa fs-5 fa-shopping-basket mx-md-4 mx-3"> Cart </i>
                                     </span>
                                 </Link>
-                                <Link
+                                {/* <Link
                                     to="/Admin"
                                     className='cart stye'
                                 >
                                     <span>
                                         <i className="fa fs-5 fa-address-card mx-md-4 mx-3"> Admin </i>
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <span>
+                                    <i className="fa fs-5 fa-address-card mx-md-4 mx-3 stye" onClick={admin}> Admin </i>
+                                </span>
                                 <span>
                                     <i className="fa fs-5 fa-sign-in mx-md-4 mx-3 my-3 my-md-0 stye" onClick={logout}> Log In </i>
                                 </span>
