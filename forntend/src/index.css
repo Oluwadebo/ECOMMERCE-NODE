@@ -25,6 +25,11 @@ code {
   border: none;
   color: #fff;
 }
+.abcde {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
 .loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -45,7 +50,6 @@ code {
     -webkit-transform: rotate(360deg);
   }
 }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -167,9 +171,6 @@ code {
 .coles {
   background: #16325a !important;
   color: white;
-}
-.vd {
-  border: 1px solid red;
 }
 .cart {
   color: white;
