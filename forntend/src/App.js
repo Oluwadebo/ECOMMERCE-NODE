@@ -8,6 +8,7 @@ import Socket from "./component/Socket";
 import Dashboard from "./component/Dashboard";
 import Registration from "./component/Registration";
 import Admin from "./component/Admin";
+import RegistAdmin from "./component/RegistAdmin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/Registration" element={<Registration />} />
+        <Route path="/RegistAdmin" element={<RegistAdmin />} />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Signup" element={<Signup />} />
