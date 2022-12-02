@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import Navbar from './Navbar'
 import house3 from "./asset/house3.jpg"
@@ -15,9 +16,17 @@ import footballboots from "./asset/football_boots_198704.jpg"
 import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+    const token = localStorage.token;
     const addtocart = () => {
-        alert("")
+        if (token) {
+
+        } else {
+            navigate("")
+
+        }
     }
+
     let d = new Date();
     let year = d.getFullYear();
     // useEffect(() => {
