@@ -50,7 +50,7 @@ const Navbar = () => {
                                     </span>
                                 </Link>
                                 <Link
-                                    to=""
+                                    to="/Admin"
                                     className='cart stye'
                                 >
                                     <span>
