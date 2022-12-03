@@ -24,8 +24,10 @@ const Dashboard = () => {
 
         } else {
             navigate("/Registration")
-
         }
+    }
+    const viewproduct = () => {
+        navigate("/Registration")
     }
 
     // useEffect(() => {
@@ -221,7 +223,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={footballboots} className="h-100" />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="view product">
+                                                <button type="button" className="btn btn-secondary" onClick={viewproduct} title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
