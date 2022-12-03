@@ -12,9 +12,18 @@ const Admin = () => {
     const navigate = useNavigate();
     const [user, setuser] = useState([])
     const [userId, setuserId] = useState('')
+    const [pageloader, setpageloader] = useState(true)
     // const token = localStorage.token;
 
     useEffect(() => {
+        setpageloader(prev => false)
+        // const yes = prompt("Are you an Admin");
+        // if (yes == "yes" || yes == "YES" || yes == "Yes") {
+        //     navigate("/Admin")
+        //     setpageloader(prev => false)
+        // } else {
+        //     navigate("/")
+        // }
         // if (token) {
         //     axios.get(`${baseUrl}dashboard`,
         //         {
@@ -44,52 +53,59 @@ const Admin = () => {
 
     return (
         <>
-            <Navbar />
-            <div className="container-fluid mt-5 pt-4 mb-4">
-                <h4 className='pt-1'>
-                    Welcome <span className="naem">{user.firstname}</span>
-                </h4>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-4">
-                            <Upload />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="title-box">
-                                <h2>Products</h2>
-                            </div>
+            {pageloader && (
+                <div className="spine">
+                    <div className="pageloader"></div>
+                </div>
+            )}
+            {!pageloader && (
+                <div className="">
+                    <Navbar />
+                    <div className="container-fluid mt-5 pt-4 mb-4">
+                        <h4 className='pt-1'>
+                            Welcome <span className="naem">{user.firstname}</span>
+                        </h4>
+                        <div className="container">
                             <div className="row">
                                 <div className="col-md-4">
-                                    <div className="product-top">
-                                        <div className="imgBx">
-                                            <img src={footballboots} className="h-100" />
-                                            <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
-                                                    <i className="fa fa-eye"></i>
-                                                </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to wish list">
-                                                    <i className="fa fa-heart"></i>
-                                                </button>
-                                                <button type="button" className="btn btn-secondary" title="Add to Cart">
-                                                    <i className="fa fa-shopping-cart"></i>
-                                                </button>
+                                    <Upload />
+                                </div>
+                                <div className="col-md-8">
+                                    <div className="title-box">
+                                        <h2>Products</h2>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-4">
+                                            <div className="product-top">
+                                                <div className="imgBx">
+                                                    <img src={footballboots} className="h-100" />
+                                                    <div className="overlay-right">
+                                                        <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                            <i className="fa fa-eye"></i>
+                                                        </button>
+                                                        <button type="button" className="btn btn-secondary" title="Add to wish list">
+                                                            <i className="fa fa-heart"></i>
+                                                        </button>
+                                                        <button type="button" className="btn btn-secondary" title="Add to Cart">
+                                                            <i className="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div className="product-botttom text-center mt-2">
+                                                    <h3>Men's Soccer Boot</h3>
+                                                    <h5>$40.00</h5>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="product-botttom text-center mt-2">
-                                            <h3>Men's Soccer Boot</h3>
-                                            <h5>$40.00</h5>
-                                        </div>
+
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+                    <Footer />
                 </div>
-            </div>
-            <div className="container-fluid p-0 m-0">
-                <Footer />
-            </div>
+            )}
         </>
     )
 }

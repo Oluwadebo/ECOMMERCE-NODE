@@ -12,14 +12,7 @@ const Navbar = () => {
             behavior: "smooth"
         })
     }
-    const admin = () => {
-        const yes = prompt("Are you an Admin");
-        if (yes == "yes" || yes == "YES" || yes == "Yes") {
-            navigate("/Admin")
-        } else {
-            navigate("/")
-        }
-    }
+
     const logout = () => {
         localStorage.removeItem('customer')
         navigate("/Registration")
@@ -56,17 +49,14 @@ const Navbar = () => {
                                         <i className="fa fs-5 fa-shopping-basket mx-md-4 mx-3"> Cart </i>
                                     </span>
                                 </Link>
-                                {/* <Link
+                                <Link
                                     to="/Admin"
                                     className='cart stye'
                                 >
                                     <span>
                                         <i className="fa fs-5 fa-address-card mx-md-4 mx-3"> Admin </i>
                                     </span>
-                                </Link> */}
-                                <span>
-                                    <i className="fa fs-5 fa-address-card mx-md-4 mx-3 stye" onClick={admin}> Admin </i>
-                                </span>
+                                </Link>
                                 <span>
                                     <i className="fa fs-5 fa-sign-in mx-md-4 mx-3 my-3 my-md-0 stye" onClick={logout}> Log In </i>
                                 </span>
