@@ -14,6 +14,7 @@ import sidebarbanner from "./asset/sidebar_banner_img.jpg"
 import shopbanner2 from "./asset/shop_banner2.jpg"
 import footballboots from "./asset/football_boots_198704.jpg"
 import footballboot8 from "./asset/football_boots_198708.jpg"
+import Footer from './Footer';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -27,8 +28,6 @@ const Dashboard = () => {
         }
     }
 
-    let d = new Date();
-    let year = d.getFullYear();
     // useEffect(() => {
     //   window.addEventListener('load',()=>{
     //     document.querySelector('#clicked').addEventListener('click')
@@ -104,7 +103,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={go4} className="h-100" />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -132,7 +131,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={go5} />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -159,7 +158,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={sidebarbanner} />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -185,7 +184,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={shopbanner2} />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -222,7 +221,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={footballboots} className="h-100" />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -249,7 +248,7 @@ const Dashboard = () => {
                                         <div className="imgBx">
                                             <img src={footballboot8} className="h-100" />
                                             <div className="overlay-right">
-                                                <button type="button" className="btn btn-secondary" title="Quick Shop">
+                                                <button type="button" className="btn btn-secondary" title="view product">
                                                     <i className="fa fa-eye"></i>
                                                 </button>
                                                 <button type="button" className="btn btn-secondary" title="Add to wish list">
@@ -315,46 +314,7 @@ const Dashboard = () => {
                         </div>
                     </section>
                 </div>
-                <div className="footer">
-                    <section className="footer">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-4 footer-image">
-                                    <div className="mb-3 mb-md-none">
-                                        <h1 className="d-inline-flex align-items-center mb-2 text-decoration-none"><span className="fs-5" style={{ cursor: "pointer;" }}>Anthonymart</span></h1>
-                                        <ul className="list-unstyled small">
-                                            <li className="mb-2 text-light">Designed and built with all the love in the world by the <i>Anthonymart team</i> with the help of <b>God.</b>.</li>
-                                        </ul>
-                                    </div>
-                                    <h1>Download App <img src={footballboots} alt="" /></h1>
-                                </div>
-                                <div className="col-4 col-md-3">
-                                    <h1>Useful Links</h1>
-                                    <p>Privacy Policy</p>
-                                    <p>Term of Use</p>
-                                    <p>Return Policy</p>
-                                    <p>Discount Coupons</p>
-                                </div>
-                                <div className="col-4 col-md-3">
-                                    <h1>Companys</h1>
-                                    <p>About Us</p>
-                                    <p>Contact Us</p>
-                                    <p>Career</p>
-                                    <p>Affiliate</p>
-                                </div>
-                                <div className="col-4 col-md-2">
-                                    <h1>Follow Us On</h1>
-                                    <p><i className="fa fa-facebook"></i>Facebook</p>
-                                    <p><i className="fa fa-youtube"></i>Youtube</p>
-                                    <p><i className="fa fa-linkedin"></i>Linkedin</p>
-                                    <p><i className="fa fa-twitter"></i>Twitter</p>
-                                </div>
-                            </div>
-                            <hr />
-                            <p className="copyright text-center"> © {year} developed <i className="fa fa-heart"></i> by OGUNWE DEBO</p>
-                        </div>
-                    </section>
-                </div>
+                <Footer />
             </div>
         </>
     )

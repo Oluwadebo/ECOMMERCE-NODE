@@ -6,6 +6,7 @@ import { baseUrl } from "./endpoint";
 import Navbar from './Navbar';
 import footballboots from "./asset/football_boots_198704.jpg"
 import Upload from './Upload';
+import Footer from './Footer';
 
 const Admin = () => {
     const navigate = useNavigate();
@@ -85,6 +86,7 @@ const Admin = () => {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         </>
     )
