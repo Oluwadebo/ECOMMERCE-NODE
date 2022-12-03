@@ -5,14 +5,7 @@ const NotFound = () => {
     <>
       <div className="my-5">
         <div className="container py-1 py-md-5">
-          <div
-            id="message"
-            className="shadow p-5 my-md-5 my-0 abcde"
-            // style={{
-            //   background: "rgba(255,255,255,.2)",
-            //   backdropFilter: "blur(5px)",
-            //   borderRadius: "5px",
-            // }}
+          <div id="message" className="shadow p-5 my-md-5 my-0 abcde"
           >
             <h1>404! 404!! 404!!!</h1>
             <h2>Page Not Found!!!</h2>
