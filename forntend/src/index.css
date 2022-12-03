@@ -356,3 +356,41 @@ code {
   padding-right: 20px;
   font-size: 15px;
 }
+.single-product {
+  margin-top: 70px;
+}
+.new-arrival {
+  background: green;
+  width: 50px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 1px;
+}
+.col-md-7 h2 {
+  color: #555;
+}
+.single-product .fa {
+  color: #16325a;
+}
+.single-product .price {
+  color: #16325a;
+  font-size: 26px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.single-product input {
+  border: 1px solid #ccc;
+  font-weight: bold;
+  height: 33px;
+  text-align: center;
+  width: 30px;
+}
+.single-product .btn-primary {
+  background: #16325a !important;
+  color: #fff;
+  font-size: 15px;
+  margin-left: 20px;
+  border: none;
+  box-shadow: none !important;
+}

@@ -27,7 +27,7 @@ const Dashboard = () => {
         }
     }
     const viewproduct = () => {
-        navigate("/Registration")
+        navigate("/Viewproduct")
     }
 
     // useEffect(() => {
