@@ -6,6 +6,7 @@ import Registration from "./component/Registration";
 import Admin from "./component/Admin";
 import RegistAdmin from "./component/RegistAdmin";
 import Viewproduct from "./component/Viewproduct";
+import Addtocart from "./component/Addtocart";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/RegistAdmin" element={<RegistAdmin />} />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/Viewproduct" element={<Viewproduct />} />
+        <Route path="/Addtocart" element={<Addtocart />} />
+        <Route path="/Dashboard" element={<Navigate to="/" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

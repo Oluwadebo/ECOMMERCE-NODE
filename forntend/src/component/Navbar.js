@@ -42,7 +42,7 @@ const Navbar = () => {
                             </ul>
                             <div className="col-12 col-md-8 text-md-end">
                                 <Link
-                                    to=""
+                                    to="/Addtocart"
                                     className='cart stye'
                                 >
                                     <span>
