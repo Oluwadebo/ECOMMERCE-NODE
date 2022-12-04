@@ -1,46 +1,10 @@
 const mongoose = require('mongoose');
-const { UserModel, CustomerModel, AdminModel } = require('../model/model');
+const { UploadModel, AdminModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { sendmail } = require('../mailer');
 require('dotenv').config()
-
-const regist = (req, res) => {
-    const information = req.body;
-    let useremail = req.body.email;
-    CustomerModel.create(information, (err) => {
-        if (err) {
-            res.send({ message: "Email already used", status: false })
-        } else {
-            sendmail(useremail)
-            res.send({ message: "saved", status: true })
-        }
-    })
-}
-
-const login = (req, res) => {
-    const { email, password } = req.body;
-    CustomerModel.findOne({ email }, async (err, message) => {
-        if (err) {
-            res.send(err)
-            console.log(err);
-        } else {
-            if (!message) {
-                res.send({ status: false, message: "Email not found" })
-            }
-            else {
-                const validPassword = await bcrypt.compare(password, message.password);
-                if (validPassword) {
-                    const token = jwt.sign({ _id: message._id }, process.env.JWT_SECRET, { expiresIn: "1h" })
-                    res.send({ token, message: "Token generated", status: true });
-                } else {
-                    res.send({ status: false, message: "Invaild password" })
-                }
-            }
-        }
-    })
-}
 
 const adminregist = (req, res) => {
     const information = req.body;
@@ -77,8 +41,7 @@ const adminlogin = (req, res) => {
         }
     })
 }
-
-const display = (req, res) => {
+const admin = (req, res) => {
     const token = req.headers.authorization.split(' ')[1];
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
@@ -103,40 +66,6 @@ const display = (req, res) => {
 
 }
 
-const getTodo = (req, res) => {
-    let userId = req.body.userId;
-    UserModel.find({ userId }, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-            res.send({ result })
-        }
-    })
-}
-
-const del = (req, res) => {
-    let { id } = req.body;
-    UserModel.findByIdAndDelete({ _id: id }, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-        }
-    })
-}
-
-const addtocart = (req, res) => {
-    let { id } = req.body;
-    UserModel.findByIdAndDelete({ _id: id }, (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(result);
-        }
-    })
-}
-
 const file = (req, res) => {
     let userfile = req.body.file;
     cloudinary.v2.uploader.upload(userfile, { folder: "sqi" }, (err, result) => {
@@ -145,7 +74,7 @@ const file = (req, res) => {
             res.send({ message: "file fail to upload" })
         } else {
             const myimage = result.url;
-            UserModel.create({ ...req.body, file: myimage, }, (err) => {
+            UploadModel.create({ ...req.body, file: myimage, }, (err) => {
                 if (err) {
                     console.log(err);
                 } else {
@@ -156,4 +85,4 @@ const file = (req, res) => {
     });
 }
 
-module.exports = { display, del, file, login, regist, adminlogin, adminregist, getTodo, addtocart };
+module.exports = { adminregist, adminlogin, admin, file }

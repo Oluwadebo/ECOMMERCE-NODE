@@ -19,10 +19,11 @@ const io = new Server(server, {
     }
 });
 
-const { display, del, file, regist, login, getTodo, addtocart, adminregist, adminlogin } = require("./control/controler");
 const { checker } = require("./middleware/middleware");
 const { users, adduser } = require("./store");
 const { sendmail } = require("./mailer");
+const { adminregist, adminlogin, admin, file } = require("./control/admincontroler");
+const { display, del, login, regist, getTodo, addtocart } = require("./control/customercontroler");
 
 app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }))
@@ -67,8 +68,9 @@ app.post("/customersignin", login)
 app.post("/adminsignup", adminregist)
 app.post("/adminsignin", adminlogin)
 app.get("/dashboard", display)
+app.get("/Admin", admin)
 app.post("/gettodo", getTodo)
-app.post("/files", file)
+app.post("/files",file)
 app.post("/del", del)
 app.post("/addtocart", addtocart)
 

@@ -10,45 +10,39 @@ import Footer from './Footer';
 
 const Admin = () => {
     const navigate = useNavigate();
-    const [user, setuser] = useState([])
-    const [userId, setuserId] = useState('')
+    const [admin, setadmin] = useState([])
+    const [adminId, setadminId] = useState('')
     const [pageloader, setpageloader] = useState(true)
-    // const token = localStorage.token;
+    const token = localStorage.Admin;
 
     useEffect(() => {
-        setpageloader(prev => false)
-        // const yes = prompt("Are you an Admin");
-        // if (yes == "yes" || yes == "YES" || yes == "Yes") {
-        //     navigate("/Admin")
-        //     setpageloader(prev => false)
-        // } else {
-        //     navigate("/")
-        // }
-        // if (token) {
-        //     axios.get(`${baseUrl}dashboard`,
-        //         {
-        //             headers: {
-        //                 "Authorization": `Bearer ${token}`,
-        //                 "Content-type": "application/json",
-        //                 "Accept": "application/json"
-        //             }
-        //         }).then((data) => {
-        //             if (data) {
-        //                 let Err = data.data.message;
-        //                 if (Err == "Valid Token") {
-        //                     setuser(data.data.result[0]);
-        //                     localStorage.userId = data.data.result[0]._id
-        //                     setuserId(data.data.result[0]._id)
-        //                 } else {
-        //                     localStorage.removeItem('token')
-        //                     localStorage.removeItem('userId')
-        //                     navigate("/")
-        //                 }
-        //             }
-        //         })
-        // } else {
-        //     navigate("/")
-        // }
+        setpageloader(prev => true)
+        if (token) {
+            axios.get(`${baseUrl}Admin`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-type": "application/json",
+                        "Accept": "application/json"
+                    }
+                }).then((data) => {
+                    if (data) {
+                        let Err = data.data.message;
+                        if (Err == "Valid Token") {
+                            setadmin(data.data.result[0]);
+                            localStorage.adminId = data.data.result[0]._id
+                            setadminId(data.data.result[0]._id)
+                            setpageloader(prev => false)
+                        } else {
+                            localStorage.removeItem('Admin')
+                            localStorage.removeItem('adminId')
+                            navigate("/RegistAdmin")
+                        }
+                    }
+                })
+        } else {
+            navigate("/RegistAdmin")
+        }
     }, [])
 
     return (
@@ -63,7 +57,7 @@ const Admin = () => {
                     <Navbar />
                     <div className="container-fluid mt-5 pt-4 mb-4">
                         <h4 className='pt-1'>
-                            Welcome <span className="naem">{user.firstname}</span>
+                            Welcome <span className="naem">{admin.Name}</span>
                         </h4>
                         <div className="container">
                             <div className="row">

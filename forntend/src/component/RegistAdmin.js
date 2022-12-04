@@ -83,9 +83,9 @@ const RegistAdmin = () => {
                         setError("Invaild password");
                     } else {
                         if (Err == "Token generated") {
-                            localStorage.customer = credentials.data.token
+                            localStorage.Admin = credentials.data.token
                             setloader(prev => false)
-                            navigate("/")
+                            navigate("/Admin")
                         }
                     }
                 }

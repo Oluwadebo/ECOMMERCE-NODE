@@ -31,7 +31,7 @@ const sendmail = async (emails) => {
         </h2>
         <h3 style="text-align: center">
           Welcome to our site. <br />
-          Your account was successfully created at <span id="time"></span> .
+          Your account was successfully created at <span>${date}</span>.
         </h3>
         <h4 style="text-align: center">
           Contact 09044796430 or Email: ogunweoluwadebo@gmail.com <br />

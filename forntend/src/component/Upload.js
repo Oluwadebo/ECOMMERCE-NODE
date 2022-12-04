@@ -12,13 +12,8 @@ const Upload = () => {
   const [product, setproduct] = useState("");
   const [price, setprice] = useState("");
   const [Err, setErr] = useState("")
-  const token = localStorage.token
-  const userId = localStorage.userId
-  useEffect(() => {
-    // if (token) { } else {
-    //   navigate("/")
-    // }
-  }, [])
+  const adminId = localStorage.adminId
+
   const getfile = (e) => {
     let myfile = e.target.files[0];
     let reader = new FileReader();
@@ -31,7 +26,7 @@ const Upload = () => {
     if (file != "" && product != "" && price != "") {
       setErr("")
       setloader(prev => true)
-      const userdata = { file, product, price, userId }
+      const userdata = { file, product, price, adminId }
       axios.post(`${baseUrl}files`, userdata).then((credentials) => {
         if (credentials) {
           setloader(prev => false)

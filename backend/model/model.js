@@ -1,13 +1,12 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
-const UserSchema = new mongoose.Schema(
+const uploadSchema = new mongoose.Schema(
     {
-        firstname: String,
-        lastname: String,
-        school: String,
+        product: String,
+        price: String,
         file: String,
-        userId: String,
+        adminId: String,
     }
 )
 
@@ -50,8 +49,8 @@ AdminSchema.pre("save", async function (next) {
     next();
 })
 
-const UserModel = mongoose.model('User', UserSchema)
+const UploadModel = mongoose.model('files', uploadSchema)
 const CustomerModel = mongoose.model('Customer', CustomerSchema)
 const AdminModel = mongoose.model('Admin', AdminSchema)
 
-module.exports = { UserModel, CustomerModel, AdminModel };
+module.exports = { UploadModel, CustomerModel, AdminModel };
