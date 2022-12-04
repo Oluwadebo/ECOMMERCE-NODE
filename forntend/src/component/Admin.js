@@ -16,7 +16,6 @@ const Admin = () => {
     const token = localStorage.Admin;
 
     useEffect(() => {
-        setpageloader(prev => true)
         if (token) {
             axios.get(`${baseUrl}Admin`,
                 {
@@ -47,27 +46,27 @@ const Admin = () => {
 
     return (
         <>
-            {pageloader && (
-                <div className="spine">
-                    <div className="pageloader"></div>
-                </div>
-            )}
-            {!pageloader && (
-                <div className="">
-                    <Navbar />
-                    <div className="container-fluid mt-5 pt-4 mb-4">
-                        <h4 className='pt-1'>
-                            Welcome <span className="naem">{admin.Name}</span>
-                        </h4>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-4">
-                                    <Upload />
+            <div className="">
+                <Navbar />
+                <div className="container-fluid mt-5 pt-4 mb-4">
+                    <h4 className='pt-1'>
+                        Welcome <span className="naem">{admin.Name}</span>
+                    </h4>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <Upload />
+                            </div>
+                            <div className="col-md-8">
+                                <div className="title-box">
+                                    <h2>Products</h2>
                                 </div>
-                                <div className="col-md-8">
-                                    <div className="title-box">
-                                        <h2>Products</h2>
+                                {pageloader && (
+                                    <div className="spine">
+                                        <div className="pageloader"></div>
                                     </div>
+                                )}
+                                {!pageloader && (
                                     <div className="row">
                                         <div className="col-md-4">
                                             <div className="product-top">
@@ -93,13 +92,14 @@ const Admin = () => {
                                         </div>
 
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </div>
-                    <Footer />
                 </div>
-            )}
+                <Footer />
+            </div>
+
         </>
     )
 }

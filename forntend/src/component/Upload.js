@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-// import Navbar from "./Navbar";
 import { baseUrl } from "./endpoint";
 
 const Upload = () => {
@@ -29,11 +28,18 @@ const Upload = () => {
       const userdata = { file, product, price, adminId }
       axios.post(`${baseUrl}files`, userdata).then((credentials) => {
         if (credentials) {
-          setloader(prev => false)
-          navigate("/Dashboard")
+          let info = credentials.data.message;
+          if (info == "Upload successfuly") {
+            setloader(prev => false)
+            setErr("Upload successfuly")
+          } else {
+            setloader(prev => false)
+            setErr("Upload failed")
+          }
         }
       })
     } else {
+      setloader(prev => false)
       if (file == "" && product == "" && price == "") {
         setErr("All input field are required")
       } else if (file == "") {

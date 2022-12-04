@@ -41,6 +41,7 @@ const adminlogin = (req, res) => {
         }
     })
 }
+
 const admin = (req, res) => {
     const token = req.headers.authorization.split(' ')[1];
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -48,7 +49,7 @@ const admin = (req, res) => {
             res.send({ status: false, message: "Invalid Token" })
         } else {
             let id = decoded._id;
-            CustomerModel.find({ _id: id }, (err, result) => {
+            AdminModel.find({ _id: id }, (err, result) => {
                 if (err) {
                     res.send(err);
                 } else {
@@ -68,17 +69,16 @@ const admin = (req, res) => {
 
 const file = (req, res) => {
     let userfile = req.body.file;
-    cloudinary.v2.uploader.upload(userfile, { folder: "sqi" }, (err, result) => {
+    cloudinary.v2.uploader.upload(userfile, { folder: "Ecommerce" }, (err, result) => {
         if (err) {
-            console.log(err);
-            res.send({ message: "file fail to upload" })
+            res.send({ message: "Upload failed", status: false })
         } else {
             const myimage = result.url;
             UploadModel.create({ ...req.body, file: myimage, }, (err) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    res.send({ message: "saved", status: true })
+                    res.send({ message: "Upload successfuly", status: true })
                 }
             })
         }
