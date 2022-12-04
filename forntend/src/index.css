@@ -12,6 +12,12 @@ body {
 code {
   font-family: "Courier New", monospace;
 }
+.colo {
+  color: red;
+}
+.clo {
+  color: darkblue;
+}
 .asd {
   background: rgba(10, 40, 122, 0.808);
   backdrop-filter: blur(5px);

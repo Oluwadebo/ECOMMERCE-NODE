@@ -92,7 +92,7 @@ const Admin = () => {
                                                     <div className="imgBx">
                                                         <img src={item.file} className="h-100" />
                                                     </div>
-                                                    <div className="product-botttom text-center mt-2">
+                                                    <div className="product-botttom text-center">
                                                         <h3>{item.product}</h3>
                                                         <h5>{item.price}</h5>
                                                     </div>

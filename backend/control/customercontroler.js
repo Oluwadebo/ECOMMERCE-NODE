@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { CustomerModel } = require('../model/model');
+const { UploadModel, CustomerModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -67,13 +67,12 @@ const display = (req, res) => {
 
 }
 
-const getTodo = (req, res) => {
-    let userId = req.body.userId;
-    UserModel.find({ userId }, (err, result) => {
+const goods = (req, res) => {
+    UploadModel.find((err, result) => {
         if (err) {
             console.log(err);
         } else {
-            console.log(result);
+            // console.log(result);
             res.send({ result })
         }
     })
@@ -103,4 +102,4 @@ const addtocart = (req, res) => {
 
 
 
-module.exports = { display, del, login, regist, getTodo, addtocart };
+module.exports = { display, del, login, regist, goods, addtocart };
