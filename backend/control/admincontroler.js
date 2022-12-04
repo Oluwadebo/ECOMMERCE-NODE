@@ -85,4 +85,16 @@ const file = (req, res) => {
     });
 }
 
-module.exports = { adminregist, adminlogin, admin, file }
+const adminfiles = (req, res) => {
+    let adminId = req.body.adminId;
+    UploadModel.find({ adminId }, (err, result) => {
+        if (err) {
+            // console.log(err);
+        } else {
+            // console.log(result);
+            res.send({ result })
+        }
+    })
+}
+
+module.exports = { adminregist, adminlogin, admin, file, adminfiles }

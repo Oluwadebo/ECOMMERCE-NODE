@@ -13,7 +13,9 @@ const Admin = () => {
     const [admin, setadmin] = useState([])
     const [adminId, setadminId] = useState('')
     const [pageloader, setpageloader] = useState(true)
+    const [adminfiles, setadminfiles] = useState([])
     const token = localStorage.Admin;
+    const adminIds = localStorage.adminId;
 
     useEffect(() => {
         if (token) {
@@ -31,7 +33,6 @@ const Admin = () => {
                             setadmin(data.data.result[0]);
                             localStorage.adminId = data.data.result[0]._id
                             setadminId(data.data.result[0]._id)
-                            setpageloader(prev => false)
                         } else {
                             localStorage.removeItem('Admin')
                             localStorage.removeItem('adminId')
@@ -39,6 +40,12 @@ const Admin = () => {
                         }
                     }
                 })
+            axios.post(`${baseUrl}adminfiles`, { adminId: adminIds }).then((data) => {
+                if (data) {
+                    setadminfiles(data.data.result);
+                    setpageloader(prev => false)
+                }
+            })
         } else {
             navigate("/RegistAdmin")
         }
@@ -68,29 +75,19 @@ const Admin = () => {
                                 )}
                                 {!pageloader && (
                                     <div className="row">
-                                        <div className="col-md-4">
-                                            <div className="product-top">
-                                                <div className="imgBx">
-                                                    <img src={footballboots} className="h-100" />
-                                                    <div className="overlay-right">
-                                                        <button type="button" className="btn btn-secondary" title="Quick Shop">
-                                                            <i className="fa fa-eye"></i>
-                                                        </button>
-                                                        <button type="button" className="btn btn-secondary" title="Add to wish list">
-                                                            <i className="fa fa-heart"></i>
-                                                        </button>
-                                                        <button type="button" className="btn btn-secondary" title="Add to Cart">
-                                                            <i className="fa fa-shopping-cart"></i>
-                                                        </button>
+                                        {adminfiles.map((item, index) => (
+                                            <div className="col-md-4">
+                                                <div className="product-top">
+                                                    <div className="imgBx">
+                                                        <img src={item.file} className="h-100" />
+                                                    </div>
+                                                    <div className="product-botttom text-center mt-2">
+                                                        <h3>{item.product}</h3>
+                                                        <h5>{item.price}</h5>
                                                     </div>
                                                 </div>
-                                                <div className="product-botttom text-center mt-2">
-                                                    <h3>Men's Soccer Boot</h3>
-                                                    <h5>$40.00</h5>
-                                                </div>
                                             </div>
-                                        </div>
-
+                                        ))}
                                     </div>
                                 )}
                             </div>
