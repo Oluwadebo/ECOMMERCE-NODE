@@ -89,12 +89,21 @@ const adminfiles = (req, res) => {
     let adminId = req.body.adminId;
     UploadModel.find({ adminId }, (err, result) => {
         if (err) {
-            // console.log(err);
         } else {
-            // console.log(result);
             res.send({ result })
         }
     })
 }
 
-module.exports = { adminregist, adminlogin, admin, file, adminfiles }
+const delproduct = (req, res) => {
+    let { id } = req.body;
+    UploadModel.findByIdAndDelete({ _id: id }, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send({ result });
+        }
+    })
+}
+
+module.exports = { adminregist, adminlogin, admin, file, adminfiles, delproduct }

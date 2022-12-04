@@ -87,16 +87,7 @@ code {
   border-left: 16px solid pink;
   width: 160px;
   height: 160px;
-  -webkit-animation: spine 2s linear infinite;
   animation: spine 2s linear infinite;
-}
-@-webkit-keyframes spine {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
 }
 @keyframes spine {
   0% {
@@ -186,7 +177,6 @@ code {
   margin-top: 9px;
   margin-left: 30px;
   width: 19rem;
-  /* border: 1px solid orange !important; */
   border-top-left-radius: 20px !important;
   border-top-right-radius: 0 !important;
   border-bottom-left-radius: 20px !important;
@@ -195,7 +185,6 @@ code {
 }
 .input-group-text {
   background: rgb(0, 132, 255) !important;
-  /* background: orange !important; */
   border: 1px solid rgb(0, 132, 255) !important;
   margin: 8.5px 10px 0px !important;
   border-top-left-radius: 0px !important;

@@ -51,6 +51,17 @@ const Admin = () => {
         }
     }, [])
 
+    const delet = (val) => {
+        axios.post(`${baseUrl}admindel`, { id: val }).then((data) => {
+            if (data) {
+                window.location.reload()
+            }
+        })
+    };
+    const edit = (val) => {
+        console.log(val);
+    }
+
     return (
         <>
             <div className="">
@@ -84,6 +95,14 @@ const Admin = () => {
                                                     <div className="product-botttom text-center mt-2">
                                                         <h3>{item.product}</h3>
                                                         <h5>{item.price}</h5>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-6">
+                                                            <p className='px-5 fa fa-edit clo py-3' name="id" onClick={() => edit(item._id)}></p>
+                                                        </div>
+                                                        <div className="col-6">
+                                                            <p className='px-5 fa fa-trash colo py-3' name="id" onClick={() => delet(item._id)}></p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

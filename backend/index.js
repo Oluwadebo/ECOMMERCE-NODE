@@ -22,7 +22,7 @@ const io = new Server(server, {
 const { checker } = require("./middleware/middleware");
 const { users, adduser } = require("./store");
 const { sendmail } = require("./mailer");
-const { adminregist, adminlogin, admin, file, adminfiles } = require("./control/admincontroler");
+const { adminregist, adminlogin, admin, file, adminfiles, delproduct } = require("./control/admincontroler");
 const { display, del, login, regist, getTodo, addtocart } = require("./control/customercontroler");
 
 app.use(bodyParser.json({ limit: "50mb" }))
@@ -63,15 +63,17 @@ io.on("connection", (socket) => {
     })
 })
 
-app.post("/customersignup", regist)
-app.post("/customersignin", login)
 app.post("/adminsignup", adminregist)
 app.post("/adminsignin", adminlogin)
-app.get("/dashboard", display)
 app.get("/Admin", admin)
-app.post("/gettodo", getTodo)
 app.post("/adminfiles", adminfiles)
-app.post("/files",file)
+app.post("/admindel", delproduct)
+
+app.get("/dashboard", display)
+app.post("/customersignup", regist)
+app.post("/customersignin", login)
+app.post("/gettodo", getTodo)
+app.post("/files", file)
 app.post("/del", del)
 app.post("/addtocart", addtocart)
 

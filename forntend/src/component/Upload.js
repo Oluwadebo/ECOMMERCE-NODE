@@ -1,11 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from 'axios';
 import { baseUrl } from "./endpoint";
 
 const Upload = () => {
-  const navigate = useNavigate();
   const [loader, setloader] = useState(false)
   const [file, setfile] = useState("");
   const [product, setproduct] = useState("");
@@ -31,7 +29,8 @@ const Upload = () => {
           let info = credentials.data.message;
           if (info == "Upload successfuly") {
             setloader(prev => false)
-            setErr("Upload successfuly")
+            setErr("Upload successfuly")  
+            window.location.reload()
           } else {
             setloader(prev => false)
             setErr("Upload failed")
