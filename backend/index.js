@@ -23,7 +23,7 @@ const { checker } = require("./middleware/middleware");
 const { users, adduser } = require("./store");
 const { sendmail } = require("./mailer");
 const { adminregist, adminlogin, admin, file, adminfiles, delproduct } = require("./control/admincontroler");
-const { display, del, login, regist, addtocart, goods } = require("./control/customercontroler");
+const { display, login, regist, addtocart, goods, Viewproduct } = require("./control/customercontroler");
 
 app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }))
@@ -68,13 +68,13 @@ app.post("/adminsignin", adminlogin)
 app.get("/Admin", admin)
 app.post("/adminfiles", adminfiles)
 app.post("/admindel", delproduct)
+app.post("/files", file)
 
 app.get("/dashboard", display)
 app.post("/customersignup", regist)
 app.post("/customersignin", login)
 app.get("/goods", goods)
-app.post("/files", file)
-app.post("/del", del)
+app.post("/Viewproduct", Viewproduct)
 app.post("/addtocart", addtocart)
 
 const port = process.env.PORT || 5010

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { baseUrl } from "./endpoint";
@@ -27,21 +27,24 @@ const Dashboard = () => {
         axios.get(`${baseUrl}goods`).then((data) => {
             if (data) {
                 setfiles(data.data.result);
-                console.log(data.data.result);
+                // console.log(data.data.result);
                 // setpageloader(prev => false)
             }
         })
     }, [])
 
-    const addtocart = () => {
+    const addtocart = (val) => {
         if (customer) {
-
+            console.log(val);
         } else {
             navigate("/Registration")
         }
     }
-    const viewproduct = () => {
-        navigate("/Viewproduct")
+    const viewproduct = (val) => {
+        if (val) {
+            localStorage.productId = val
+            navigate("/Viewproduct")
+        }
     }
 
     // useEffect(() => {
@@ -238,13 +241,13 @@ const Dashboard = () => {
                                             <div className="imgBx">
                                                 <img src={item.file} className="h-100" />
                                                 <div className="overlay-right">
-                                                    <button type="button" className="btn btn-secondary" title="view product">
+                                                    <button type="button" className="btn btn-secondary" onClick={() => viewproduct(item._id)} title="view product">
                                                         <i className="fa fa-eye"></i>
                                                     </button>
                                                     <button type="button" className="btn btn-secondary" title="Add to wish list">
                                                         <i className="fa fa-heart"></i>
                                                     </button>
-                                                    <button type="button" onClick={addtocart} className="btn btn-secondary" title="Add to Cart">
+                                                    <button type="button" onClick={() => addtocart(item._id)} className="btn btn-secondary" title="Add to Cart">
                                                         <i className="fa fa-shopping-cart"></i>
                                                     </button>
                                                 </div>

@@ -3,9 +3,8 @@ const { UploadModel, CustomerModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { sendmail } = require('../mailer');
+const { customermail } = require('../mailer');
 require('dotenv').config()
-
 
 const regist = (req, res) => {
     const information = req.body;
@@ -14,7 +13,7 @@ const regist = (req, res) => {
         if (err) {
             res.send({ message: "Email already used", status: false })
         } else {
-            sendmail(useremail)
+            customermail(useremail)
             res.send({ message: "saved", status: true })
         }
     })
@@ -42,6 +41,7 @@ const login = (req, res) => {
         }
     })
 }
+
 const display = (req, res) => {
     const token = req.headers.authorization.split(' ')[1];
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -72,19 +72,17 @@ const goods = (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            // console.log(result);
             res.send({ result })
         }
     })
 }
 
-const del = (req, res) => {
-    let { id } = req.body;
-    UserModel.findByIdAndDelete({ _id: id }, (err, result) => {
+const Viewproduct = (req, res) => {
+    let _id = req.body.productId;
+    UploadModel.find({ _id }, (err, result) => {
         if (err) {
-            console.log(err);
         } else {
-            console.log(result);
+            res.send({ result })
         }
     })
 }
@@ -102,4 +100,4 @@ const addtocart = (req, res) => {
 
 
 
-module.exports = { display, del, login, regist, goods, addtocart };
+module.exports = { display, login, regist, goods, addtocart, Viewproduct };

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { baseUrl } from "./endpoint";
 import Navbar from './Navbar';
-import footballboots from "./asset/football_boots_198704.jpg"
 import Upload from './Upload';
 import Footer from './Footer';
 

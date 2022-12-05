@@ -3,7 +3,7 @@ const { UploadModel, AdminModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { sendmail } = require('../mailer');
+const { adminmail } = require('../mailer');
 require('dotenv').config()
 
 const adminregist = (req, res) => {
@@ -13,7 +13,7 @@ const adminregist = (req, res) => {
         if (err) {
             res.send({ message: "Email already used", status: false })
         } else {
-            sendmail(useremail)
+            adminmail(useremail)
             res.send({ message: "saved", status: true })
         }
     })
