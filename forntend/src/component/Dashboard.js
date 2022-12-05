@@ -10,17 +10,17 @@ import house5 from "./asset/house5.jpg"
 import go4 from "./asset/go4.jfif"
 import go2 from "./asset/go2.jfif"
 import go5 from "./asset/go5.jfif"
-import go3 from "./asset/go3.jpg"
 import SouthKorea from "./asset/Hookup-in-South-Korea-quickly.jpg"
 import sidebarbanner from "./asset/sidebar_banner_img.jpg"
 import shopbanner2 from "./asset/shop_banner2.jpg"
 import footballboots from "./asset/football_boots_198704.jpg"
-import footballboot8 from "./asset/football_boots_198708.jpg"
 import Footer from './Footer';
 
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [customers, setcustomers] = useState([])
     const [files, setfiles] = useState([])
+    const [cart, setcart] = useState([])
     const customer = localStorage.customer;
 
     useEffect(() => {
@@ -35,14 +35,37 @@ const Dashboard = () => {
 
     const addtocart = (val) => {
         if (customer) {
-            console.log(val);
+            axios.get(`${baseUrl}dashboard`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${customer}`,
+                        "Content-type": "application/json",
+                        "Accept": "application/json"
+                    }
+                }).then((data) => {
+                    if (data) {
+                        let Err = data.data.message;
+                        if (Err == "Valid Token") {
+                            setcustomers(data.data.result[0]);
+                            localStorage.customerId = data.data.result[0]._id
+                            const newobj = [...cart, val];
+                            setcart(newobj);
+                            localStorage.setItem("addtocart", JSON.stringify(newobj));
+                            // setadminId(data.data.result[0]._id)
+                        } else {
+                            localStorage.removeItem('customer')
+                            localStorage.removeItem('customerId')
+                            navigate("/Registration")
+                        }
+                    }
+                })
         } else {
             navigate("/Registration")
         }
     }
     const viewproduct = (val) => {
         if (val) {
-            localStorage.productId = val
+            localStorage.Viewproduct = val
             navigate("/Viewproduct")
         }
     }

@@ -5,6 +5,8 @@ import footballboots from "./asset/football_boots_198704.jpg"
 import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Addtocart = () => {
+    const addedtocart = localStorage.addtocart
+    console.log(addedtocart);
     return (
         <>
             <Navbar />

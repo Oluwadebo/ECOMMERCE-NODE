@@ -9,10 +9,10 @@ import Navbar from './Navbar'
 const Viewproduct = () => {
     const navigate = useNavigate();
     const customer = localStorage.customer;
-    const productId = localStorage.productId;
+    const ViewproductId = localStorage.Viewproduct;
     const [product, setproduct] = useState([])
     useEffect(() => {
-        axios.post(`${baseUrl}Viewproduct`, { productId }).then((data) => {
+        axios.post(`${baseUrl}Viewproduct`, { ViewproductId }).then((data) => {
             if (data) {
                 setproduct(data.data.result);
             }

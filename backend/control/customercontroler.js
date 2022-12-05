@@ -78,7 +78,7 @@ const goods = (req, res) => {
 }
 
 const Viewproduct = (req, res) => {
-    let _id = req.body.productId;
+    let _id = req.body.ViewproductId;
     UploadModel.find({ _id }, (err, result) => {
         if (err) {
         } else {
@@ -89,7 +89,7 @@ const Viewproduct = (req, res) => {
 
 const addtocart = (req, res) => {
     let { id } = req.body;
-    UserModel.findByIdAndDelete({ _id: id }, (err, result) => {
+    UploadModel.find({ _id: id }, (err, result) => {
         if (err) {
             console.log(err);
         } else {
