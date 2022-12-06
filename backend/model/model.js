@@ -49,8 +49,16 @@ AdminSchema.pre("save", async function (next) {
     next();
 })
 
+const AddtocartSchema = new mongoose.Schema(
+    {
+        customerId: String,
+        product: Object,
+    }
+)
+
 const UploadModel = mongoose.model('files', uploadSchema)
 const CustomerModel = mongoose.model('Customer', CustomerSchema)
 const AdminModel = mongoose.model('Admin', AdminSchema)
+const AddtocartModel = mongoose.model('Addtocart', AddtocartSchema)
 
-module.exports = { UploadModel, CustomerModel, AdminModel };
+module.exports = { UploadModel, CustomerModel, AdminModel, AddtocartModel };

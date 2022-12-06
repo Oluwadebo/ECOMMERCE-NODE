@@ -12,11 +12,15 @@ const Viewproduct = () => {
     const ViewproductId = localStorage.Viewproduct;
     const [product, setproduct] = useState([])
     useEffect(() => {
-        axios.post(`${baseUrl}Viewproduct`, { ViewproductId }).then((data) => {
-            if (data) {
-                setproduct(data.data.result);
-            }
-        })
+        if (ViewproductId) {
+            axios.post(`${baseUrl}Viewproduct`, { ViewproductId }).then((data) => {
+                if (data) {
+                    setproduct(data.data.result);
+                }
+            })
+        } else {
+            navigate("/")
+        }
     }, [])
     const addtocart = (val) => {
         if (customer) {

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { UploadModel, CustomerModel } = require('../model/model');
+const { UploadModel, CustomerModel, AddtocartModel } = require('../model/model');
 const cloudinary = require('cloudinary');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -88,16 +88,33 @@ const Viewproduct = (req, res) => {
 }
 
 const addtocart = (req, res) => {
-    let { id } = req.body;
-    UploadModel.find({ _id: id }, (err, result) => {
+    let _id = req.body.val;
+    let customerId = req.body.customerId;
+    UploadModel.find({ _id }, (err, result) => {
         if (err) {
             console.log(err);
         } else {
+            let addtocart = result
+            AddtocartModel.create({ ...req.body, product: addtocart, }, (err, message) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(message);
+                }
+            })
+        }
+    })
+}
+
+const getaddtocart = (req, res) => {
+    let customerId = req.body
+    AddtocartModel.find((err, result) => {
+        if (err) {
+        } else {
+            res.send({ result })
             console.log(result);
         }
     })
 }
 
-
-
-module.exports = { display, login, regist, goods, addtocart, Viewproduct };
+module.exports = { display, login, regist, goods, addtocart, Viewproduct, getaddtocart };

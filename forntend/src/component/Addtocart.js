@@ -1,12 +1,53 @@
 import React from 'react'
+import { useEffect, useState } from "react";
 import Footer from './Footer'
+import axios from 'axios';
+import { baseUrl } from "./endpoint";
+import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar'
 import footballboots from "./asset/football_boots_198704.jpg"
 import footballboot8 from "./asset/football_boots_198708.jpg"
 
 const Addtocart = () => {
-    const addedtocart = localStorage.addtocart
-    console.log(addedtocart);
+    const customer = localStorage.customer;
+    const customerId = localStorage.customerId;
+    const navigate = useNavigate();
+    const [customers, setcustomers] = useState([])
+    useEffect(() => {
+        if (customer) {
+            axios.get(`${baseUrl}dashboard`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${customer}`,
+                        "Content-type": "application/json",
+                        "Accept": "application/json"
+                    }
+                }).then((data) => {
+                    if (data) {
+                        let Err = data.data.message;
+                        if (Err == "Valid Token") {
+                            setcustomers(data.data.result[0]);
+                            localStorage.customerId = data.data.result[0]._id
+                            axios.get(`${baseUrl}getaddtocart`, {customerId}).then((data) => {
+                                if (data) {
+                                    // setfiles(data.data.result);
+                                    console.log(data.data.result);
+                                    // setpageloader(prev => false)
+                                }
+                            })
+                        } else {
+                            localStorage.removeItem('customer')
+                            localStorage.removeItem('customerId')
+                            navigate("/Registration")
+                        }
+                    }
+                })
+        } else {
+            navigate("/Registration")
+        }
+
+    }, [])
+
     return (
         <>
             <Navbar />

@@ -22,6 +22,7 @@ const Dashboard = () => {
     const [files, setfiles] = useState([])
     const [cart, setcart] = useState([])
     const customer = localStorage.customer;
+    const customerId = localStorage.customerId;
 
     useEffect(() => {
         axios.get(`${baseUrl}goods`).then((data) => {
@@ -48,10 +49,7 @@ const Dashboard = () => {
                         if (Err == "Valid Token") {
                             setcustomers(data.data.result[0]);
                             localStorage.customerId = data.data.result[0]._id
-                            const newobj = [...cart, val];
-                            setcart(newobj);
-                            localStorage.setItem("addtocart", JSON.stringify(newobj));
-                            // setadminId(data.data.result[0]._id)
+                            axios.post(`${baseUrl}addtocart`, { val, customerId })
                         } else {
                             localStorage.removeItem('customer')
                             localStorage.removeItem('customerId')
