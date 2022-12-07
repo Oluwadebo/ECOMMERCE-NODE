@@ -12,7 +12,7 @@ const Addtocart = () => {
     const customer = localStorage.customer;
     const customerId = localStorage.customerId;
     const navigate = useNavigate();
-    const [customers, setcustomers] = useState([])
+    const [addtocart, setaddtocart] = useState([])
     useEffect(() => {
         if (customer) {
             axios.get(`${baseUrl}dashboard`,
@@ -26,12 +26,9 @@ const Addtocart = () => {
                     if (data) {
                         let Err = data.data.message;
                         if (Err == "Valid Token") {
-                            console.log(customerId);
                             axios.post(`${baseUrl}getaddtocart`, { id: customerId }).then((data) => {
                                 if (data) {
-                                    // setfiles(data.data.result);
-                                    console.log(data.data.result);
-                                    // setpageloader(prev => false)
+                                    setaddtocart(data.data.result);
                                 }
                             })
                         } else {
@@ -47,6 +44,14 @@ const Addtocart = () => {
 
     }, [])
 
+    const remove = (val) => {
+        axios.post(`${baseUrl}removeaddtocart`, { id: val }).then((data) => {
+            if (data) {
+                window.location.reload()
+            }
+        })
+    };
+
     return (
         <>
             <Navbar />
@@ -55,38 +60,29 @@ const Addtocart = () => {
                     <section className="new-product">
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-3">
-                                    <div className="product-top">
-                                        <div className="imgBx">
-                                            <img src={footballboots} className="h-100" />
-                                        </div>
-                                        <div className="product-botttom text-center">
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star-half"></i>
-                                            <h3>Men's Soccer Boot</h3>
-                                            <h5>$40.00</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-3">
-                                    <div className="product-top">
-                                        <div className="imgBx">
-                                            <img src={footballboot8} className="h-100" />
-                                        </div>
-                                        <div className="product-botttom text-center">
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star"></i>
-                                            <i className="fa fa-star-half"></i>
-                                            <h3>Men's Soccer Boot</h3>
-                                            <h5>$70.00</h5>
+                                {addtocart.map((item, index) => (
+                                    <div className="col-md-3">
+                                        <div className="product-top">
+                                            <div className="imgBx">
+                                                <img src={item.file} className="h-100" />
+                                            </div>
+                                            <div className="product-botttom text-center">
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star-half"></i>
+                                                <h3>{item.product}</h3>
+                                                <h5>{item.price}</h5>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-6">
+                                                    <p className='px-5 fa fa-remove colo py-3' name="id" onClick={() => remove(item._id)}></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </section>

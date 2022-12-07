@@ -107,15 +107,23 @@ const addtocart = (req, res) => {
 }
 
 const getaddtocart = (req, res) => {
-    let customerId = req.body.customerId
-    console.log(req.body);
-    // AddtocartModel.find({ customerId }, (err, result) => {
-    //     if (err) {
-    //     } else {
-    //         res.send({ result })
-    //         console.log(result);
-    //     }
-    // })
+    let customerId = req.body.id
+    AddtocartModel.find({ customerId }, (err, result) => {
+        if (err) {
+        } else {
+            res.send({ result })
+        }
+    })
+}
+const removeaddtocart = (req, res) => {
+    let { id } = req.body;
+    AddtocartModel.findByIdAndDelete({ _id: id }, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send({ result });
+        }
+    })
 }
 
-module.exports = { display, login, regist, goods, addtocart, Viewproduct, getaddtocart };
+module.exports = { display, login, regist, goods, addtocart, Viewproduct, getaddtocart, removeaddtocart };
