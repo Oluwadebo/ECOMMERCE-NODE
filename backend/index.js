@@ -75,7 +75,7 @@ app.post("/customersignup", regist)
 app.post("/customersignin", login)
 app.get("/goods", goods)
 app.post("/Viewproduct", Viewproduct)
-app.get("/getaddtocart", getaddtocart)
+app.post("/getaddtocart", getaddtocart)
 app.post("/addtocart", addtocart)
 
 const port = process.env.PORT || 5010

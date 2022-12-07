@@ -94,12 +94,12 @@ const addtocart = (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            let addtocart = result
-            AddtocartModel.create({ ...req.body, product: addtocart, }, (err, message) => {
+            let addtocart = result[0];
+            AddtocartModel.create({ ...req.body, customerId: customerId, product: addtocart.product, price: addtocart.price, file: addtocart.file, }, (err, message) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(message);
+                    // console.log(message);
                 }
             })
         }
@@ -107,14 +107,15 @@ const addtocart = (req, res) => {
 }
 
 const getaddtocart = (req, res) => {
-    let customerId = req.body
-    AddtocartModel.find((err, result) => {
-        if (err) {
-        } else {
-            res.send({ result })
-            console.log(result);
-        }
-    })
+    let customerId = req.body.customerId
+    console.log(req.body);
+    // AddtocartModel.find({ customerId }, (err, result) => {
+    //     if (err) {
+    //     } else {
+    //         res.send({ result })
+    //         console.log(result);
+    //     }
+    // })
 }
 
 module.exports = { display, login, regist, goods, addtocart, Viewproduct, getaddtocart };

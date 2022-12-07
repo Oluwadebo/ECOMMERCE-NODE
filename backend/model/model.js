@@ -51,8 +51,13 @@ AdminSchema.pre("save", async function (next) {
 
 const AddtocartSchema = new mongoose.Schema(
     {
-        customerId: String,
-        product: Object,
+        customerId: {
+            type: String,
+            require:true,
+        },
+        product: String,
+        price: String,
+        file: String,
     }
 )
 

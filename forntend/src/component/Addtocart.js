@@ -26,9 +26,8 @@ const Addtocart = () => {
                     if (data) {
                         let Err = data.data.message;
                         if (Err == "Valid Token") {
-                            setcustomers(data.data.result[0]);
-                            localStorage.customerId = data.data.result[0]._id
-                            axios.get(`${baseUrl}getaddtocart`, {customerId}).then((data) => {
+                            console.log(customerId);
+                            axios.post(`${baseUrl}getaddtocart`, { id: customerId }).then((data) => {
                                 if (data) {
                                     // setfiles(data.data.result);
                                     console.log(data.data.result);

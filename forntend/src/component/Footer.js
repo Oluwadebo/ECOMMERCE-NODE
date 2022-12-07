@@ -39,6 +39,7 @@ const Footer = () => {
                                 <p><i className="fa fa-youtube"></i>Youtube</p>
                                 <p><i className="fa fa-linkedin"></i>Linkedin</p>
                                 <p><i className="fa fa-twitter"></i>Twitter</p>
+                                <p><i className="fa fa-what's-app"></i><a href="wa.me/+23409044796430" className='text-white'>What's app </a></p>
                             </div>
                         </div>
                         <hr />
